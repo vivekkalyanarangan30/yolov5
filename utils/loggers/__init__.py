@@ -93,7 +93,7 @@ class Loggers():
             s = f"{prefix}run 'pip install comet_ml' to automatically track and visualize YOLOv5 🚀 runs in Comet"
             self.logger.info(s)
         # TensorBoard
-        s = os.environ['AIP_TENSORBOARD_LOG_DIR'] # hack to get vertex to log in vertex tensorboard
+        s = Path(os.environ['AIP_TENSORBOARD_LOG_DIR']) # hack to get vertex to log in vertex tensorboard
         if 'tb' in self.include and not self.opt.evolve:
             prefix = colorstr('TensorBoard: ')
             self.logger.info(f"{prefix}Start with 'tensorboard --logdir {s.parent}', view at http://localhost:6006/")
